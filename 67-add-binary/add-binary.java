@@ -28,8 +28,6 @@ class Solution {
 
         }
 
-        return result.reverse().toString();
-
-        
+        return result.reverse().toString();      
     }
 }
