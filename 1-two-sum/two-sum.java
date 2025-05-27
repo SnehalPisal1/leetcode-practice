@@ -2,27 +2,19 @@ class Solution {
 
     public int[] twoSum(int[] nums, int target) {
 
+        for(int i=0;i<nums.length; i++) // pass
+        {
+            for(int j = i+1 ; j<nums.length; j++){
 
-        HashMap<Integer,Integer> map =new LinkedHashMap<>();
-        // iterate int loop
+                int sum = nums[i]+nums[j];
 
-        for(int i=0;i<nums.length;i++){
+                if(sum == target){
+                    return new int[]{i,j};
+                }
 
-        // complement = target - nums[i];
-        int complement = target - nums[i];
-
-        // complement is present in hashmap or not
-        if(map.containsKey(complement)){
-
-            return new int[]{map.get(complement), i};
-
-        } else{
-            map.put(nums[i], i);
+            }
         }
-
-        }
-
-        return new int[]{};
-       
+                return new int[]{};
     }
+
     }
