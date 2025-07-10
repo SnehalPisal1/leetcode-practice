@@ -1,56 +1,40 @@
 class Solution {
     public int findShortestSubArray(int[] nums) {
 
-        // degree should be max
+            // degree of array
+            Map<Integer,Integer> map=new HashMap<Integer,Integer>();
+            Map<Integer,Integer> firstAcc= new HashMap<>();
+            Map<Integer,Integer> lastAcc= new HashMap<>();
+            List<Integer> maxFre = new ArrayList<>();
+            for(int i= 0; i < nums.length; i++){
+                map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+                lastAcc.put(nums[i], i );
+                if(! firstAcc.containsKey(nums[i])){
+                    firstAcc.put(nums[i], i );
 
-        int maxDegree =0;
-        Map<Integer,Integer> map = new HashMap<>();
-        Map<Integer,Integer> firstAcc = new HashMap<>();
-        Map<Integer,Integer> lastAcc = new HashMap<>();
-
-        for(int i=0; i<nums.length;i++){
-            map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
-            if(!firstAcc.containsKey(nums[i])){
-                firstAcc.put(nums[i], i);
-            }    
-                lastAcc.put(nums[i], i);
-
-        }
-
-        for(int key: map.keySet()){
-
-                if(map.get(key)> maxDegree){
-                    maxDegree = map.get(key);
                 }
+            }
 
-        }
-
-        System.out.println(maxDegree);
-        System.out.println(firstAcc);
-        System.out.println(lastAcc);
-
-        List<Integer> maxFre = new ArrayList<>();
-        for(int key : map.keySet())
-        {
-                if(map.get(key) == maxDegree){
+            int degree = Collections.max(map.values());
+            // find out maxfreq elements
+            for(int key : map.keySet()){
+                if(map.get(key) == degree){
                     maxFre.add(key);
                 }
-        }
-        System.out.println(maxFre);
-
-        // size of subArray is min
-        int minLen = Integer.MAX_VALUE;
-
-        for(int n: maxFre){
-
-            int len = lastAcc.get(n) - firstAcc.get(n) + 1;
-            if(len < minLen){
-                minLen = len;
             }
-        }
+            // subarry
+            int minLen = Integer.MAX_VALUE;
+          
+            for(int n : maxFre){
+
+                int len=lastAcc.get(n) - firstAcc.get(n)+1;
+                
+                if(len < minLen){
+                    minLen = len;
+                }
+
+            }
 
         return minLen;
-
-
     }
 }
