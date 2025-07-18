@@ -20,8 +20,6 @@ class Solution {
             
            if(isCompletingWord(word, map)){
             if( result == null || word.length() < result.length() ){
-                                System.out.println("result : "+result);
-
                 result = word;
             }
            }
