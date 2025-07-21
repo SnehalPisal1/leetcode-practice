@@ -1,53 +1,55 @@
 class Solution {
     public String shortestCompletingWord(String licensePlate, String[] words) {
 
-        Map<Character, Integer> map = new LinkedHashMap<>();
+      // will convert licensePlate in alaphbets and all in lower case. will take one map to store char -> count
+      Map<Character, Integer> licensePlateMap = new HashMap<>();
 
-        char[] charArr=licensePlate.toLowerCase().toCharArray();
-
-        for(char ch: charArr){
+        for(char ch :  licensePlate.toLowerCase().toCharArray()){
 
             if(Character.isLetter(ch)){
-                map.put(ch, map.getOrDefault(ch, 0) + 1);
+                licensePlateMap.put(ch, licensePlateMap.getOrDefault(ch, 0) + 1);
             }
         }
 
-        System.out.println("Map : "+map);
+        System.out.println("converted Map: "+ licensePlateMap);
 
         String result = null;
+
         for(String word : words){
+                // one by one will check above converted licensePlate is pereent in words..
+                        System.out.println("word "+ word);
 
-            
-           if(isCompletingWord(word, map)){
-            if( result == null || word.length() < result.length() ){
-                result = word;
-            }
-           }
+                if(isCompletingWord(word, licensePlateMap)){
+                    if(result == null || result.length() > word.length()){
+                      result = word;
+                    }
+                }
+        System.out.println("result "+ result);
+
         }
-        return result;
+
+      return result;
+       
     }
-     
-    public static boolean isCompletingWord(String word,  Map<Character, Integer> map){
-
-        Map<Character, Integer> mapCompletingWord = new LinkedHashMap<>();
-        char[] charArr = word.toCharArray();
-                System.out.println("word : "+word);
-
-        for(char ch: charArr){
-                mapCompletingWord.put(ch, mapCompletingWord.getOrDefault(ch, 0) + 1);    
-        }
-                System.out.println("mapCompletingWord : "+mapCompletingWord);
-
-        for(Character key : map.keySet()){
-
-            if(!mapCompletingWord.containsKey(key) || map.get(key) > mapCompletingWord.get(key)){
-                    return false;
-            } 
     
+
+      // map to store char - > count of each word 
+
+      public static boolean isCompletingWord(String word,  Map<Character, Integer> licensePlateMap){
+
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(char ch :  word.toCharArray()){
+                map.put(ch, map.getOrDefault(ch, 0) + 1);  
         }
-        
+
+        for(char key :  licensePlateMap.keySet()){
+
+            if(!map.containsKey(key) || map.get(key) < licensePlateMap.get(key)){
+                return false;
+            }
+        }
 
         return true;
-    }
-
-    }
+      }
+}
