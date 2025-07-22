@@ -12,22 +12,16 @@ class Solution {
         //  add it in to currWidth
         // check currWidth <= 100 then add char to String
 
-            if(currWidth + widths[index] <= 100)
+            if(currWidth + widths[index] > 100)
             {
-               System.out.println("currWidth : "+currWidth);
-               currWidth = currWidth + widths[index];
-                str.append(ch);
-            }         // go to next line
-            else{
                 line++;
                 currWidth =0;
-                currWidth = widths[index];
                 str.setLength(0);
-                str.append(ch);
-
             } 
-            System.out.println("str : "+str);
-        }
+
+                currWidth = currWidth + widths[index];
+                str.append(ch);       
+             }
 
            int result = 0;
            for(char ch : str.toString().toCharArray()){
