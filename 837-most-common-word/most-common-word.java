@@ -3,7 +3,6 @@ class Solution {
 
         //split pragraph to string array
         // map String - > count 
-        // will pick key which has high count
 
        String convertedPara = paragraph.toLowerCase().replaceAll("[,-.!?:';]"," ");
 
