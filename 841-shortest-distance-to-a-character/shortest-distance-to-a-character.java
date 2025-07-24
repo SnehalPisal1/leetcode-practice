@@ -1,16 +1,12 @@
 class Solution {
     public int[] shortestToChar(String s, char c) {
 
-
-        System.out.println(s.length());
-
         // String to char Array 
         int[] arr= new int[s.length()];
 
         char[] chArr = s.toCharArray();
 
         for(int i = 0; i<chArr.length; i++){
-            System.out.println(i);
             // if element found
             if(chArr[i] == c){
               //add to list - > 0
