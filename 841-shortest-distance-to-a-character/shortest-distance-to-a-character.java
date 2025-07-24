@@ -30,7 +30,6 @@ class Solution {
                 }   
              } 
               result.add(minDist); // add it into list
-                System.out.println(result);
             }
         }
 
