@@ -21,16 +21,16 @@ class Solution {
             }
             else{
                 int minDist = Integer.MAX_VALUE;
-           //itrate loop till we found give char , count -> add it into list
-            for(int j = 0; j<chArr.length; j++){
-                if(chArr[j] == c){
+           //itrate loop till we found give char , 
+            for(int j = 0; j<chArr.length; j++){ 
+                if(chArr[j] == c){ 
                 //check char == given char c
                 int dist=Math.abs(j-i);
                 if(minDist > dist)
                 minDist = dist;
                 }   
              } 
-              result.add(minDist);
+              result.add(minDist); // add it into list
                 System.out.println(result);
             }
         }
