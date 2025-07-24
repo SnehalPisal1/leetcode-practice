@@ -13,7 +13,7 @@ class Solution {
 
         for(int i = 0; i<chArr.length; i++){
             System.out.println(i);
-
+            // if element found
             if(chArr[i] == c){
               //add to list - > 0
                 result.add(0);
