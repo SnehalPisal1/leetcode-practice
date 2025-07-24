@@ -7,8 +7,6 @@ class Solution {
         // String to char Array 
         int[] arr= new int[s.length()];
 
-        List<Integer> result = new ArrayList<>();
-
         char[] chArr = s.toCharArray();
 
         for(int i = 0; i<chArr.length; i++){
@@ -32,7 +30,6 @@ class Solution {
                 arr[i] = minDist;
             }
         }
-
         
          return arr;
     }
