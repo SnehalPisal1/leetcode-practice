@@ -17,7 +17,6 @@ class Solution {
             if(chArr[i] == c){
               //add to list - > 0
                 result.add(0);
-                System.out.println(result);
             }
             else{
                 int minDist = Integer.MAX_VALUE;
