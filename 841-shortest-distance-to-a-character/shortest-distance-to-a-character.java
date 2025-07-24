@@ -16,7 +16,7 @@ class Solution {
             // if element found
             if(chArr[i] == c){
               //add to list - > 0
-                result.add(0);
+                arr[i] =0;
             }
             else{
                 int minDist = Integer.MAX_VALUE;
@@ -29,15 +29,11 @@ class Solution {
                 minDist = dist;
                 }   
              } 
-              result.add(minDist); // add it into list
+                arr[i] = minDist;
             }
         }
 
-        System.out.println(result);
-
-        for(int i = 0; i<arr.length; i++){
-            arr[i] = result.get(i);
-        }
+        
          return arr;
     }
 }
