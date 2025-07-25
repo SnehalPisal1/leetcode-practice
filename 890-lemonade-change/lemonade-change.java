@@ -18,7 +18,7 @@ class Solution {
                     return false;
                 }
             } else { // 20
-                 // 1 10 and 1 5 Or 3 5
+                 // 1 -> 10 and 1 -> 5 Or 3 -> 5
 
                  if(ten>0 && five>0){
                     five--;
