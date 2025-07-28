@@ -12,7 +12,26 @@ class Solution {
             totalB +=n;
         }
 
-      //  int a , int b
+        // totalA - a + b == totalB - b + a
+           // b + b + totalA - totalB - a -a=0
+          //  b = a - (totalA - totalB) / 2 
+
+          Set<Integer> setBob = new HashSet<>();
+
+          for(int n : bobSizes ){
+            setBob.add(n);
+          }
+
+          for(int a : aliceSizes){
+
+           int  b = a - (totalA - totalB) / 2 ;
+            if(setBob.contains(b)){
+                return new int[]{a,b};
+            }
+
+          }
+
+    /*  //  int a , int b
         for(int i = 0; i <aliceSizes.length ;i++){
 
             int a = aliceSizes[i];
@@ -24,7 +43,8 @@ class Solution {
                         return new int[]{a,b};
                        }
             }
-        }
+        } */
+
         return new int[]{};
     }
 }
