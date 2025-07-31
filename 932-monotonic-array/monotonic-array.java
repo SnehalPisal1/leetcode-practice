@@ -5,6 +5,7 @@ class Solution {
         boolean decreasing = true;
 
             for(int i = 0;i< nums.length - 1;i++){
+                //check order 
                  if(nums[i] > nums[i+1]){
                 decreasing =  false;
             } 
