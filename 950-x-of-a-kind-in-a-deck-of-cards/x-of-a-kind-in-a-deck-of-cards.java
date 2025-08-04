@@ -16,17 +16,6 @@ class Solution {
         }
             System.out.println(map);
 
-        
-   /*     // check values -> values should be same for each card
-        int groupSize = map.get(deck[0]);
-        for(int key: map.keySet()){ 
-            if(groupSize != map.get(key)){
-                return false;
-            }
-        }
-
-        return true; */
-
 
         int gcd = 0 ;
          for(int count : map.values()){
