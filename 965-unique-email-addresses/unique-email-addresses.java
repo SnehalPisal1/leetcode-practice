@@ -31,7 +31,6 @@ class Solution {
 
         System.out.println("Set : "+set);
 
-
         return set.size();
     }
 }
