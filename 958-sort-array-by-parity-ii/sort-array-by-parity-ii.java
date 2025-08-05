@@ -2,11 +2,8 @@ class Solution {
     public int[] sortArrayByParityII(int[] nums) {
 
         int result[] = new int[nums.length];
-        //? if 468
-        // - ? 40608
 
         //? array is null - > null?
-        // duplicate values 22445
 
         // 0 even n%2 == 0
         // 1 odd n%2 != 0      
@@ -23,13 +20,13 @@ class Solution {
         System.out.println("Even List: "+even);
         System.out.println("odd List: "+odd);
 
-        // i will fill even values in array
-        // i will fill odd values in array
+        // fill even values in array
 
         for(int i = 0 ; i<nums.length;i +=2){
                 result[i] = even.poll();
         }
 
+        //  fill odd values in array
         for(int i = 1 ; i<nums.length;i +=2){
                 result[i] = odd.poll();
         }
