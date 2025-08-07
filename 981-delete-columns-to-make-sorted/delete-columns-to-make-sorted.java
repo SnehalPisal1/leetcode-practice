@@ -1,24 +1,22 @@
 class Solution {
     public int minDeletionSize(String[] strs) {
 
-          int len = strs[0].length();
+        int deletedCount = 0;
 
-          int deleteCount = 0;
+        for(int col = 0; col < strs[0].length(); col++){
+            for(int row = 1; row < strs.length; row++){
 
-          for(int col = 0; col < len; col++){
-            
-            for(int row = 1; row < strs.length ;row++){
+                if(strs[row].charAt(col) < strs[row - 1].charAt(col)){
 
-                    if(strs[row].charAt(col) < strs[row - 1].charAt(col)){
-                        deleteCount++;
-                        break;
-                    }
+                    deletedCount++;
+                    break;
 
+                }
             }
+        }
 
 
-          }
+        return deletedCount;
 
-          return deleteCount;
     }
 }
