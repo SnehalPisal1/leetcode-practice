@@ -1,13 +1,12 @@
 class Solution {
     public boolean isAlienSorted(String[] words, String order) {
-        // Create a priority map for each character in the alien alphabet
         int[] priority = new int[26];
         for (int i = 0; i < order.length(); i++) {
             char c = order.charAt(i);
-            priority[c - 'a'] = i; // Maps 'a' to 0, 'b' to 1, etc., but in alien order
+            priority[c - 'a'] = i; 
         }
 
-        // Compare each adjacent pair of words
+        
         for (int i = 0; i < words.length - 1; i++) {
             String word1 = words[i];
             String word2 = words[i + 1];
