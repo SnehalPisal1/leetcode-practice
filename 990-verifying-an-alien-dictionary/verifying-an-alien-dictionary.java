@@ -20,7 +20,7 @@ class Solution {
                 
                 if (c1 != c2) {
                     if (priority[c1 - 'a'] > priority[c2 - 'a']) {
-                        return false; // Words are out of order
+                        return false; 
                     }
                     isSamePrefix = false;
                     break;
