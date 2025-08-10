@@ -5,6 +5,7 @@ class Solution {
         Set<Integer> set =  new HashSet<>();
 
         for(int n : nums){
+            // find duplicate number -> if duplicate -> return false
             if(!set.add(n)){
                 return n;
             }
