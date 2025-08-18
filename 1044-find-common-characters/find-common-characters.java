@@ -18,8 +18,8 @@ class Solution {
             
             if (presentInAll) {
                 result.add(currChar);
-                for (int j = 1; j < words.length; j++) {
-                    words[j] = words[j].replaceFirst(currChar, "");
+                for (int k = 1; k < words.length; k++) {
+                    words[k] = words[k].replaceFirst(currChar, "");
                 }
             }
         }
