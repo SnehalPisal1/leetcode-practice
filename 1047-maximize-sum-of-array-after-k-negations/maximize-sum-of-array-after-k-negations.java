@@ -2,15 +2,13 @@ class Solution {
     public int largestSumAfterKNegations(int[] nums, int k) {
 
 
-        // sort it 
-
-        // convert negative  -> positive number
-
-        // still k > 0 or only postive numbers in array then change single num multiple times 
-
+        // sort array
         Arrays.sort(nums);
 
         int index =0;
+
+                // convert negative  -> positive number
+
         while(k>0 && index < nums.length && nums[index] < 0){
 
                 nums[index] = Math.abs(nums[index]);
@@ -20,6 +18,7 @@ class Solution {
 
         if(k > 0){
             // k is odd - > it will change to negative 
+        // still k > 0 or only postive numbers in array then change single num multiple times 
 
             Arrays.sort(nums);
             if( k % 2 == 1){
