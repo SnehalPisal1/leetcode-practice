@@ -3,30 +3,28 @@ class Solution {
 
 
         // sort array
+
         Arrays.sort(nums);
 
-        int index =0;
+        // negative numbers -> positive
 
-                // convert negative  -> positive number
-
-        while(k>0 && index < nums.length && nums[index] < 0){
-
-                nums[index] = Math.abs(nums[index]);
-                k--;
-                index++;
+        int index = 0;
+        while( k > 0 && index < nums.length && nums[index] < 0){
+            nums[index] = Math.abs(nums[index]);
+            index++;
+            k--;
         }
 
-        if(k > 0){
-            // k is odd - > it will change to negative 
-        // still k > 0 or only postive numbers in array then change single num multiple times 
-
+        // still k > 0 then pick small digit from array multiple times
+        if(k>0){
+            // sort array to pick first number i.e small number - > convert positive to nagative
             Arrays.sort(nums);
-            if( k % 2 == 1){
-                 nums[0] = -nums[0];
+
+            if(k % 2 == 1){
+                nums[0] = - nums[0];
             }
         }
 
-     
         int sum = 0;
         for(int n : nums){
             sum +=n;
