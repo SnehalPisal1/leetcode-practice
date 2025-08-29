@@ -1,18 +1,26 @@
 class Solution {
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
-        int totalDistance = 0;
-        for (int d : distance) {
-            totalDistance += d;
+
+       
+
+        if(start > destination){
+            //swap
+            int temp = start;
+            start = destination;
+            destination = temp;
         }
-        
-        int clockwiseDistance = 0;
-        int from = Math.min(start, destination);
-        int to = Math.max(start, destination);
-        for (int i = from; i < to; i++) {
-            clockwiseDistance += distance[i];
+        // clockwise
+        int clockwise = 0;
+        for(int i =start ; i<destination;i++){
+            clockwise += distance[i];
         }
-        
-        int counterClockwiseDistance = totalDistance - clockwiseDistance;
-        return Math.min(clockwiseDistance, counterClockwiseDistance);
+        // counter clockwise
+        int totalDist =0;
+        for(int i = 0 ;i<distance.length;i++){
+            totalDist +=distance[i];
+        }
+        int counterClockwise = totalDist - clockwise;
+
+        return Math.min(clockwise,counterClockwise);
     }
 }
