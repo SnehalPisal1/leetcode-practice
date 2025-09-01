@@ -1,7 +1,7 @@
 class Solution {
     public boolean uniqueOccurrences(int[] arr) {
 
-        // need to find out accourance
+        // need to find out Occurrance
         Map<Integer,Integer> map= new HashMap<>();
 
         for(int n: arr){
