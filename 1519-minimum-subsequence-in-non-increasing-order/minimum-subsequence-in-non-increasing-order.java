@@ -16,12 +16,12 @@ class Solution {
         int subseqSum =0;
         List<Integer> result = new ArrayList<>();
         int index = nums.length - 1;
-            while(total >= subseqSum) {
+        while(total >= subseqSum) {
             subseqSum += nums[index]; // 7 7 6 -> 20
             total -= nums[index]; // 28 -  7 -> 21 -> 14 -6 = 8
             result.add(nums[index]);
             index--;
-            }  // 7 7 6
+        }  // 7 7 6
         
         return result;
     }
