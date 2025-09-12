@@ -2,7 +2,7 @@ class Solution {
     public List<String> stringMatching(String[] words) {
 
         // sort array
-       // Arrays.sort(words);
+        Arrays.sort(words);
       
 
         Set<String> set = new HashSet<>();
@@ -18,7 +18,6 @@ class Solution {
             }
         }
         // List
-        List<String> list = new ArrayList<>(set);
-        return list;
+        return new ArrayList<>(set);
     }
 }
