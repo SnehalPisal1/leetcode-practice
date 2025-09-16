@@ -1,0 +1,22 @@
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+
+        // sort array
+        // will check diff bet consecutive elements
+
+        Arrays.sort(arr);
+
+         // diff = arr[i] - arr[i + 1];
+
+        int diff = arr[0] - arr[1];
+
+        for(int i = 1; i < arr.length - 1 ; i++){
+                if(diff !=  arr[i] - arr[i + 1]){
+                    return false;
+                }
+
+        }
+
+        return true;    
+    }
+}
