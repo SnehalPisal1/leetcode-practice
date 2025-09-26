@@ -18,8 +18,7 @@ class Solution {
 
 list.sort(Map.Entry.<Integer, Integer>comparingByValue()
     .thenComparing(Map.Entry.<Integer, Integer>comparingByKey().reversed()));
-             System.out.println(list);
-
+        System.out.println(list);
         int index = 0 ;
         int result[] = new int[nums.length];
         for(Map.Entry<Integer,Integer> entry : list){
