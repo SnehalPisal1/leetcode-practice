@@ -1,35 +1,36 @@
 class Solution {
     public int[] frequencySort(int[] nums) {
+        int result[] = new int[nums.length];
 
-        // map<num, frequency>
-        // sort map based on values 
-        // put keys -> result array
+        // calculte fequecny of each element
+        Map<Integer,Integer> map = new HashMap<>();
 
-        Map<Integer, Integer> map = new LinkedHashMap<>();
-
-        for(int n : nums){
-            map.put(n , map.getOrDefault(n, 0)+1);
+        for(int n: nums){
+            map.put(n, map.getOrDefault(n,0)+1);
         }
 
         System.out.println(map);
 
-        List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
-         System.out.println(list);
+        // sort map based on values ie. frequency...
 
-list.sort(Map.Entry.<Integer, Integer>comparingByValue()
-    .thenComparing(Map.Entry.<Integer, Integer>comparingByKey().reversed()));
+        List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
+
+        list.sort(Map.Entry.<Integer, Integer>comparingByValue().thenComparing(Map.Entry.<Integer, Integer>comparingByKey().reversed()));
+            int index = 0 ;
+
         System.out.println(list);
-        int index = 0 ;
-        int result[] = new int[nums.length];
-        for(Map.Entry<Integer,Integer> entry : list){
-            int frequency = entry.getValue();
-            while( frequency > 0){
-            result[index] = entry.getKey();
-                    frequency--;
-                    index++;
+
+        for(Map.Entry<Integer, Integer> m : list){
+            System.out.println(m);
+
+        int frequency = m.getValue();
+            while(frequency > 0){
+                result[index] = m.getKey();
+                frequency--;
+                index++;
             }
         }
-
+        
         return result;
     }
 }
