@@ -1,23 +1,22 @@
 class Solution {
     public int minOperations(String[] logs) {
-        // List -> String 
-        List<String> list = new ArrayList<String>();
-        for(String log: logs){
-            if(log.equals("../")){
-                if(list.size() < 1){
-                   continue;
-                } else{
-                    list.removeLast();
-                }
-            } else if(log.equals("./")){
+
+        List<String> logList = new ArrayList<>();
+
+        for(int i = 0 ; i < logs.length ;i++){
+
+            if(logs[i].equals("../")){
+              if(logList.size() != 0)
+                logList.removeLast();
+            } else if(logs[i].equals("./")){
                 continue;
-            } else {
-                list.add(log);
+            } else{
+                logList.add(logs[i]);
             }
 
+            System.out.println(logList);
         }
-        // return size of list 
-        return list.size();
-        
+
+       return logList.size();
     }
 }
