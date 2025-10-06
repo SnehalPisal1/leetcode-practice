@@ -1,33 +1,28 @@
 class Solution {
     public char slowestKey(int[] releaseTimes, String keysPressed) {
 
+        //c -> 0 ->9
+        // b -> 9 ->29 =  20
 
-        // iterate loop releaseTimes
+       // -> itearte tuimes i will calulate dution for each key .. take one varible longest and another for resp key
 
-        int largestRelTime = 0;
-        int preCharRelTime = 0;
-        char result = ' ';
+        int longestDuration = 0;
+        char key = 0;
+        int preReleaseTime = 0;
+        for(int i = 0; i< releaseTimes.length;i++){
 
-        for(int i = 0; i < releaseTimes.length ; i++){
-
-            int currentCharRelTime = releaseTimes[i] - preCharRelTime;
-            System.out.println(currentCharRelTime);
-            if(currentCharRelTime > largestRelTime){
-                 largestRelTime = currentCharRelTime;
-                 result = keysPressed.charAt(i);
-                 System.out.println(result+" : "+largestRelTime);
-             } else if(currentCharRelTime == largestRelTime){
-                  result = result > keysPressed.charAt(i) ? result :  keysPressed.charAt(i);
-                 System.out.println(result+" : "+largestRelTime);
-             } else{
-                 preCharRelTime = releaseTimes[i];
-                continue;
-             }
-
-            preCharRelTime = releaseTimes[i];
+            int duration = releaseTimes[i]-preReleaseTime;
+            System.out.println(duration);
+            if(duration > longestDuration){
+                longestDuration = duration;
+                key = keysPressed.charAt(i);
+            } 
+            if(duration == longestDuration){
+                if(key < keysPressed.charAt(i)){
+                    key = keysPressed.charAt(i);
+                }
+            }
+            preReleaseTime = releaseTimes[i];
         }
-
-        return result;
-        
-    }
-}
+ return key;
+}}
