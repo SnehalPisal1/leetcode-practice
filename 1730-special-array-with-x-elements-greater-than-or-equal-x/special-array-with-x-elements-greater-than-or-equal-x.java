@@ -1,30 +1,22 @@
+import java.util.Arrays;
+
 class Solution {
     public int specialArray(int[] nums) {
-
-       /* x = 0 ;  only 0 >= 0
-        x= 1; only one element in nums >=1
-        x= 2; only 2 elements in nums >=2 */
-
-        for(int x = 0; x <=nums.length ;x++){
-
+        Arrays.sort(nums);
+        for(int i = 0; i <= nums.length; i++) {  // Change: i <= nums.length
             int count = 0;
-            for(int n: nums){
-
-                System.out.println(x +" : "+n);
-                if(x <= n){
+            int index = 0;
+            while(index < nums.length){
+                if(nums[index] >= i){
                     count++;
                 }
-            }
-                System.out.println("Count : "+count);
-
-            if(x == count){
-                return x;
+                index++;
             }
 
-
+            if(i == count){
+                return count;
+            }
         }
-
-      return -1;
-        
+        return -1;
     }
 }
