@@ -3,27 +3,25 @@ class Solution {
 
         // Mathmetical way -> count of all possible odd sequences.. by selecting possible start and end elements
 
-        int totalSum = 0;
-        int n = arr.length;
-        for(int i = 0; i<n ;i++){
+        int n =  arr.length;
 
-            // select start and end 
+        int totaloddArr= 0;
 
-            int left = i+1; // 1 - > start - > index 0 (1)
-            int right = n - i; // 5 - > index 0 1 2 3 4 
-
-            int totalSubArrays = left * right; // 1 * 5 -> 5
-
-            int oddSubArrays = (totalSubArrays  + 1 )/ 2 ; // 5 /2 - > 2
-
-            totalSum += oddSubArrays * arr[i];
+        for(int i = 0; i<n;i++){
 
 
+            int left = i + 1; // 0 iu.e value 1
+            int right = n - i; // 5 index 0 1 2 3 4
+
+            int totalSubArrays = left * right ;
+
+            int oddSubArrays = (totalSubArrays + 1 ) / 2; //- > 3
+            System.out.println(oddSubArrays);
+
+            totaloddArr += oddSubArrays * arr[i];
         }
 
-        return totalSum;
-
-   
-    }
+        return totaloddArr;
         
+    }
     }
