@@ -1,37 +1,35 @@
 class Solution {
     public int getMaximumGenerated(int n) {
 
-        if (n == 0)
-        return 0;
+        if( n < 2){
+            return n;
+        }
 
-        if( n == 1){
-            return 1;
-        } 
-
-
-        int num[]= new int[n+1];
-
-        num[0] = 0;
-        num[1] = 1;
+        int[] nums = new int[n+1];
 
         int max = 1;
-        for(int i = 2 ; i<=n ;i++){
 
-            //even indices
-            if(i % 2 == 0){
+        nums[0] = 0;
+        nums[1] = 1;
 
-                num[i] = num[  i / 2];
+        for(int i = 2; i < nums.length ;i++){
 
-            }
-            //odd indices 
-            else{
-                num[i] = num[i/2] + num[i/2 + 1];
-            }
+                // even indeices
+                if( i % 2 == 0){
+                    nums[i] = nums[ i/ 2];
+                }
+                // odd indices
+                else
+                {
+                    nums[i] = nums[i/2 + 1] + nums[i/2];
+                }
 
-            max=Math.max(max, num[i]);
-            System.out.println(max);
+            max= Math.max(max, nums[i]);
+
         }
 
         return max;
     }
-}
+    }
+
+    
