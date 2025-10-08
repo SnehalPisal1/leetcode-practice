@@ -1,41 +1,52 @@
 class Solution {
     public boolean canFormArray(int[] arr, int[][] pieces) {
 
-        // iterate pieces an dstore it into map  -> first element of piece[0] - > piece array
-        // iterate arr -> will check elements present in map or not 
-        // if not present then return false
-        // else will check next elements
+        // iterate pieces and put it into the map
+        // first Ele of pieces - > piece []
 
-        Map<Integer,int[]>  map = new LinkedHashMap<>();
-        for(int[] piece : pieces){
+        // iterate arr and check elememts one by one
+
+        Map<Integer, int[]> map = new HashMap<>();
+
+        for(int piece[] : pieces){
             map.put(piece[0], piece);
         }
-        System.out.println(map);
 
-        int i = 0 ;
+            System.out.println(map);
+        int  i = 0 ;
         while(i < arr.length){
 
-                System.out.println("arr Ele : "+ arr[i]);
+            System.out.println("arr ele : "+arr[i]);
 
-                if(!map.containsKey(arr[i])){
+            if(!map.containsKey(arr[i])){
+                return false;
+            }
+            
+            int[] piece = map.get(arr[i]);
+
+             for(int p = 0; p < piece.length ;p++){
+                System.out.println("p : "+piece[p]);
+             }
+
+            if (piece.length > 1){
+            for(int j = 1; j < piece.length ;j++){
+
+                if(arr[i+j] != piece[j]){
                     return false;
-                } 
-
-                int[] piece = map.get(arr[i]);
-
-                for(int n : piece ){
-                      System.out.println("arr n-> : "+ n);
                 }
+            }
+            }
 
-                        
-                for(int j = 0; j <piece.length ;j++){                    
-                    if(arr[i+j] != piece[j]){
-                        return false;
-                    }
-                }
-                    i +=piece.length;
+            i +=piece.length;
 
-                }
-        return true; 
+             System.out.println("i : "+i);
+
+
+        }
+
+        return true;
+
     }
-}
+ }
+
+     
