@@ -1,26 +1,26 @@
 class OrderedStream {
-    private String[] stream;
-    private int ptr; // pointer to track the next expected position
 
+    String stream[];
+    int ptr;
     public OrderedStream(int n) {
-        stream = new String[n + 1]; // using 1-indexed, so size n+1
-        ptr = 1; // start from position 1
+        stream = new String[n+1];
+        ptr = 1;
+       
     }
     
     public List<String> insert(int idKey, String value) {
-        // Store the value at the given position
-        stream[idKey] = value;
-        
-        List<String> chunk = new ArrayList<>();
-        
-        // If the current pointer position matches the inserted position (or we have consecutive values)
-        // Output all consecutive values starting from pointer
-        while (ptr < stream.length && stream[ptr] != null) {
-            chunk.add(stream[ptr]);
-            ptr++;
-        }
-        
-        return chunk;
+
+            stream[idKey] = value;
+
+            List<String> chunk =  new ArrayList<>();
+
+            while(ptr < stream.length && stream[ptr] != null){
+                chunk.add(stream[ptr]);
+                ptr++;
+            }
+
+            return chunk;
+
     }
 }
 
