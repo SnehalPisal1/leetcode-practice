@@ -1,38 +1,39 @@
 class Solution {
     public int countStudents(int[] students, int[] sandwiches) {
 
-        Queue<Integer> studQ = new LinkedList<>(); 
 
-        for(int s : students){
-            studQ.add(s);
+        Queue<Integer> que = new LinkedList<>();
+
+        for(int student : students){
+            que.offer(student);
         }
-        System.out.println(studQ);
 
-        int index  = 0;
+        System.out.println(que);
+        int i = 0;
         int failure = 0;
+        while(!que.isEmpty() && i <= sandwiches.length && failure <= sandwiches.length ){
 
-        while(!studQ.isEmpty() && index < sandwiches.length && failure <  sandwiches.length) {
-                 System.out.println("ssandwiches[index] : "+sandwiches[index]);
+        // if match found -> student take sandwich and leave the queue
+                System.out.println(que.peek() +" : "+sandwiches[i]);
 
-        // if sandwiches[index] == student  -> peek sand and leave queue
-
-        if(sandwiches[index] == studQ.peek()){
-            studQ.poll();
-             System.out.println("same : "+studQ);
-            index++;
-            failure = 0;
+        if(que.peek() == sandwiches[i]){
+                que.poll();
+                i++;
+                System.out.println("match : "+que);
+                failure = 0;
         }
-
-        // else remove student from first and add at last
+        // else -> levae the que and go to the end of the que
         else {
-                int stud=  studQ.poll();
-                studQ.offer(stud);
-                System.out.println("not same : "+studQ);
-                failure++;
+           int stud = que.poll();
+           que.offer(stud);
+             System.out.println("NOT : "+que);
+             failure++;
         }
+
         }
-    
-        return studQ.size();
+       
+        return que.size();
+
           
     }
 }
