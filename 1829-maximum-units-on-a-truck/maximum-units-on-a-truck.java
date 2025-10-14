@@ -1,28 +1,30 @@
 class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
 
-       // sort array with decending order based sec element of each array
         Arrays.sort(boxTypes , (a,b) -> b[1] - a[1]);
-       // iterate array - > first element numberOfBoxesi - >0 / numberOfUnitsPerBoxi - > 1 ;
-        int boxLoaded = 0;
-        int unit = 0;
-       for(int[] boxType : boxTypes){
+        int maxUnit = 0;
+        int boxesLoaded = 0;
 
-        int numberOfBoxes = boxType[0];
-        int unitsPerBox =  boxType[1];
+        for(int[] boxType : boxTypes){
 
-        int boxToTake = Math.min(numberOfBoxes , truckSize - boxLoaded);
+            int numberOfBoxes = boxType[0];
+            int unitsPerBox = boxType[1];
 
-        boxLoaded += boxToTake;
+            System.out.println(numberOfBoxes+ " : " + unitsPerBox);
 
-        unit +=  boxToTake * unitsPerBox;
 
-        if(boxLoaded >= truckSize){
-            break;
+         int boxesTake = Math.min(numberOfBoxes, truckSize - boxesLoaded); 
+            System.out.println( "boxesTake : " + boxesTake);
+
+          maxUnit += boxesTake * unitsPerBox;
+            System.out.println( "maxUnit : " + maxUnit);
+            boxesLoaded += boxesTake;
+            if(boxesLoaded >= truckSize){
+                break;
+            }
+
         }
 
-       }
-
-       return unit;
+        return maxUnit;
     }
 }
