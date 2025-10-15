@@ -3,34 +3,23 @@ class Solution {
 
         int count =0 ;
         for(List item : items){
-
-
             switch(ruleKey){
                 
                 case "type" : 
                     if(ruleValue.equals(item.get(0))){
                     count++;
-                   System.out.println("Type : "+ item.get(0) + " : "+ count);
                     }
-                
                 break;
                 
                   case "color" : 
-
                  if(ruleValue.equals(item.get(1))){
                     count++;
-                      System.out.println("color : "+ item.get(1) + " : "+ count);
-
                     }
-                
                     break;
+
                 case "name" : 
-
-
                  if(ruleValue.equals(item.get(2))){
                     count++;
-                                       System.out.println("name : "+ item.get(2) + " : "+ count);
-
                     }
                 break;
             }
