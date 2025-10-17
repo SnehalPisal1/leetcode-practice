@@ -5,18 +5,21 @@ class Solution {
 
         String[] splittedString =  s.split(" ");
 
-        String result = "";
+        if(k >= splittedString.length){
+            return  s;
+        }
 
-        for(int i=0 ;i<splittedString.length;i++){
-
-            if(i<k){
-            result += splittedString[i]+" ";
-            } else {
-                return result.trim();
+        StringBuilder sb = new StringBuilder(); 
+        for(int i=0 ;i<k;i++){
+            
+            if(i>0){
+               sb.append(" "); 
             }
+
+            sb.append(splittedString[i]);
 
         }
         
-        return result.trim();        
+        return sb.toString();        
     }
 }
