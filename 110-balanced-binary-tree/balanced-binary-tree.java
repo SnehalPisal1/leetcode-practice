@@ -23,9 +23,9 @@ class Solution {
         return true;
 
         int leftH =  calHeight(root.left);
-        int RightH =  calHeight(root.right);
+        int rightH =  calHeight(root.right);
 
-        if(Math.abs(leftH - RightH) > 1){
+        if(Math.abs(leftH - rightH) > 1){
             return false;
         }
 
