@@ -6,7 +6,7 @@ class Solution {
         Arrays.sort(seats);
         Arrays.sort(students);
 
-        int totalmoves = 0;
+        int totalMoves = 0;
 
         if(seats.length != students.length){
             return 0;
@@ -16,11 +16,11 @@ class Solution {
 
             int moves = Math.abs(students[i] - seats[i]);
 
-            totalmoves +=moves;
+            totalMoves +=moves;
 
         }
 
-        return totalmoves;
+        return totalMoves;
         
     }
 }
